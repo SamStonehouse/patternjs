@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Pattern Previews</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="lib/sketch.js"></script>
+	</head>
+	<body>
+		<canvas id="canvas" style="border: 1px solid black;">
+			
+		</canvas>
+		<div>
+			<button id="button">
+				Gen
+			</button>
+		</div>
+		<div style="position: relative; display: inline-block;">
+			<img src="http://i.imgur.com/xU21aNb.jpg" alt="">
+			<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;" id="background"></div>
+		</div>
+		<script>
+			$('#canvas').sketch();
+			var background = document.getElementById("background");
+			var button = document.getElementById("button");
+			var canvas = document.getElementById("canvas");
+			button.onclick = function() {
+				var bg = canvas.toDataURL();
+				background.style['background-image'] = "url(" + bg + ")";
+				console.log("Done");
+				console.log(bg);
+			}
+			background.style['opacity'] = 0.9;
+		</script>
+	</body>
+</html>
